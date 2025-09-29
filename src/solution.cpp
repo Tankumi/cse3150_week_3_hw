@@ -6,7 +6,8 @@
 void addStudent(char* name, double gpa, char* names[], double gpas[], int& size, int capacity) {
     // TODO: throw "Full" if size == capacity, else insert and ++size
     if (size >= capacity){
-        std::string("Full");
+        throw std::string("List full");
+        
     }else{
         names[size] = name;
         gpas[size] = gpa;
@@ -27,7 +28,7 @@ void printStudent(const char* name, const double& gpa){
 
 double average(const double values[], int size){
     if (size == 0){
-        throw std::string("Empty");
+        throw std::string("No students");
     }
     double sum = 0.0;
     for(int i = 0; i < size; i++){

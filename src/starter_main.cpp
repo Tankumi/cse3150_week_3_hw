@@ -12,6 +12,8 @@
 
 // TODO: implement averageGPA
 
+using namespace std;
+
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::cout << "Usage: ./program <capacity>" << std::endl;
@@ -32,20 +34,20 @@ int main(int argc, char* argv[]) {
         std::cout << "4. Compute average GPA\n";
         std::cout << "5. Quit\n";
         std::cout << "Enter choice: ";
-        std::cin >> choice;
+        cin >> choice;
 
         switch (choice) {
             case 1: {
                 // TODO: implement menu logic
                 std::cout << "Enter name: " << std::endl;
-                char* name = new char[50];
+                char* name = new char[100];
                 double gpa;
                 std::cin >> name;
                 std::cout << "Enter GPA: " << std::endl;
                 std::cin >> gpa;
                 try {
                     addStudent(name, gpa, names, gpas, size, capacity);
-                } catch (const char* msg) {
+                } catch (const std::string msg) {
                     std::cout << msg << std::endl;
                 }
                 break;
@@ -71,8 +73,13 @@ int main(int argc, char* argv[]) {
             }
             case 4: {
                 // TODO: implement menu logic
-                std::cout << "Average: " << average(gpas, size) << ", Rounded: " << static_cast<int>(average(gpas, size)) << std::endl;
-                
+
+
+                try{
+                    std::cout << "Average GPA: " << average(gpas, size) << ", Rounded: " << static_cast<int>(average(gpas, size)) << std::endl;
+                } catch (const std::string msg){
+                    std::cout << msg << endl;
+                }
                 
                 break;
             }
@@ -82,6 +89,8 @@ int main(int argc, char* argv[]) {
             }
             default: {
                 std::cout << "Invalid choice" << std::endl;
+                break;
+
             }
         }
     } while (choice != 5);
