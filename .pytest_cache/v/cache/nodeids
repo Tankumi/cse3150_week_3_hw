@@ -1,0 +1,7 @@
+[
+  "test_homework.py::test_add_and_print_student",
+  "test_homework.py::test_average_gpa",
+  "test_homework.py::test_list_full",
+  "test_homework.py::test_no_students_average",
+  "test_homework.py::test_update_gpa"
+]
